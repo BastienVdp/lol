@@ -1,0 +1,61 @@
+/**
+ * Décrivez votre classe Frame ici.
+ *
+ * @author (votre nom)
+ * @version (un numéro de version ou une date)
+ */
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class Frame extends JFrame {
+    
+    //public Billard billard;
+    //public Score score;
+    public JPanel jpFond, jpHaut, jpCenter, jpBas;
+    
+    public Frame(String title){
+        super(title);
+        
+        // Création des JPanel
+        jpFond = new JPanel();
+        jpFond.setBackground(new Color(0, 102, 0));
+        jpFond.setLayout(new BorderLayout());
+        
+        jpHaut = new JPanel();
+        jpCenter = new JPanel();
+        jpBas = new JPanel();
+        
+        // Placement des JPanel
+        jpFond.add(jpHaut, BorderLayout.NORTH);
+        jpFond.add(jpCenter, BorderLayout.CENTER);
+        jpFond.add(jpBas, BorderLayout.SOUTH);
+        
+        // Ajout de composants dans les JPanel
+        // JPanel Haut
+        //score = new Score();
+        //jpHaut.add(score);
+        // JPanel Center
+        //billard = new Billard();
+        //jpCenter.add(billard);
+            
+        //  Listener 
+        this.addKeyListener(new qKeyListener());
+        
+        // Param de la JFrame
+        this.setBackground(Color.ORANGE);
+        this.setMinimumSize(new Dimension(1200,900));
+        this.setContentPane(jpFond);
+        this.setFocusable(true);
+        this.requestFocusInWindow();
+        this.pack();
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+    
+
+    
+    
+}
